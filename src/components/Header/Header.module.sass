@@ -1,0 +1,39 @@
+.header
+  display: flex
+  height: 85px
+  padding: 0 130px
+  box-shadow: 0 7px 64px 0 var(--color-light-black)
+
+.logo
+  display: block
+  width: 48px
+  height: 48px
+
+.title
+  display: flex
+  align-items: center
+  gap: 45px
+
+  font-family: var(--geometria-medium)
+  font-size: 20px
+  line-height: 220%
+
+  &--clip
+    color: var(--color-blue)
+
+
+@media (max-width: 1400px)
+  .header
+    padding: 0 clamp(20px, 8vw, 130px)
+  
+  .title
+    gap: clamp(25px, 5vw, 45px)
+
+@media (max-width: 700px)
+  .header
+    padding: 0 clamp(20px, 5.3vw, 130px)
+
+@media (max-width: 615px)
+  .title
+    &--clip
+      display: none
