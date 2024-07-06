@@ -11,8 +11,8 @@ export const Header = (): React.ReactElement => {
           <img className={style.logo} src={logo} alt="logo" />
         </a>
         <span>
-          <span>{`${title[0]} ${title[1]}`} </span>
-          <span className={style["title--clip"]}>{title[2]}</span>
+          <span>{title[0]}</span>
+          <span className={style["title--clip"]}>{` ${title[1]} ${title[2]}`}</span>
         </span>
       </div>
     </header>

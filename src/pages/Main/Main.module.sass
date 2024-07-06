@@ -1,29 +1,31 @@
 .list-main
   display: flex
   flex-direction: column
-  padding: 0 130px
+  padding: 0 9%
 
 .list-main__title
   font-family: var(--geometria-bold)
   font-size: 40px
-  color: var(--color-black)
   margin-top: 75px
 
-.list-main__section
+.list-main__section-search
   display: flex
   margin: 47px 0 32px 0
 
-.list-main__search
-  width: calc(100% - 180px)
-  height: 48px
-  margin-right: 20px
-  border-radius: 6px
-  box-shadow: 0 7px 64px 0 var(--color-light-black)
+.list-main__section-students
+  font-family: var(--geometria-regular)
+  font-weight: 400
+  font-size: 16px
+  line-height: 125%
 
 @media (max-width: 1400px)
   .list-main
     padding: 0 clamp(20px, 8vw, 130px)
-  
+
+@media  (max-width: 860px)
+  .list-main__section-search
+    margin: 22px 0 10px 0
+
 @media  (max-width: 700px)
   .list-main
     padding: 0 clamp(20px, 5.3vw, 130px)

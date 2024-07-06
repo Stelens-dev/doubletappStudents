@@ -1,0 +1,230 @@
+.sort__section-table
+  display: flex
+  flex-direction: column
+
+.sort__section-thead
+  display: flex
+  width: 100%
+
+.sort__section-th-title
+  display: flex
+  width: 100%
+  padding: 0 20px
+  margin-bottom: 12px
+
+.sort__section-students
+  display: flex
+  flex-direction: column
+  gap: 25px
+
+.sort__item-full-name
+  width: 33.89%
+
+.sort__section-students-value[id="1"], .sort__item-specialty
+  display: flex
+  width: 25.16%
+
+.sort__section-students-value[id="2"], .sort__item-group
+  display: flex
+  width: 12.11%
+
+.sort__section-students-value[id="3"], .sort__item-birthday
+  display: flex
+  width: 11.90%
+
+.sort__section-students-value[id="4"], .sort__item-rating
+  width: 16.94%
+
+.sort__section-students-value[id="0"]
+  display: flex
+  padding-left: 5.09%
+  width: 28.80%
+
+.sort__section-students-value[id="4"]
+  display: flex
+
+.sort__section-students
+  padding: 26px 20px
+  border-radius: 6px
+  box-shadow: 0 7px 64px 0 var(--color-light-black)
+
+// ---------- Don't touch!!!! -------------
+.sort__section-item
+  display: flex
+  align-items: center
+
+.sort__item-full-name
+  // width: 24%
+  display: flex
+  align-items: center
+  position: relative
+
+  &::after
+    content: " "
+    display: block
+    position: absolute
+    height: 40px
+    width: 40px
+    box-shadow: inset 0px 0px 0px 2px var(--color-light-white)
+    border-radius: 50%
+
+.sort__item-student-img
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  object-fit: cover
+
+.sort__item-name
+  padding-left: 21px
+
+.sort__item-rating
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+.sort__item-rating-text
+  display: flex
+  min-width: 32px
+
+.sort__item-rating-block
+  display: flex
+
+.sort__item-color
+  width: 30px
+  height: 30px
+  display: block
+  clip-path: ellipse()
+  background: var(--color-green)
+
+.sort__item-basket
+  width: 30px
+  height: 30px
+  border-radius: 100%
+  box-shadow: 0 0 16px 0 var(--color-light-black)
+  margin-left: 21px
+
+.sort__item-basket-img
+  width: 30px
+  height: 30px
+  object-fit: none
+  border-radius: 100%
+  box-shadow: 0 0 16px 0 var(--color-light-black)
+
+// Adaptive items disable
+@media (min-width: 860.1px)
+  .sort__item-name-rating
+    display: none
+
+  .sort__item-full-name .sort__item-basket:nth-child(4)
+    display: none
+
+  .sort__item-specialty-block .sort__item-specialty:nth-child(2), .sort__item-birthday-block .sort__item-birthday:nth-child(2),
+  .sort__item-group-block .sort__item-group:nth-child(2)
+    display: none
+
+  .sort__item-line
+    display: none
+
+// Adaptive
+@media (max-width: 860px)
+  .sort__section-item
+    flex-direction: column
+    align-items: unset
+    padding: 16px 15px 18px 16px
+    border-radius: 6px
+    box-shadow: 0 7px 64px 0 var(--color-light-black)
+
+  .sort__section-students
+    padding: unset
+    box-shadow: unset
+
+  .sort__item-full-name
+    width: auto
+    margin-bottom: 14px 
+
+  .sort__item-name, .sort__section-thead, .sort__item-rating, .sort__item-birthday, .sort__item-specialty, .sort__item-group
+    display: none
+
+  .sort__item-specialty-block, .sort__item-birthday-block, .sort__item-group-block
+    // width: 33.89%
+    width: 100%
+    display: flex
+    align-items: center
+
+  .sort__item-specialty, .sort__item-group
+    width: 33.89%
+
+  .sort__item-name-rating .sort__item-name:nth-child(1)
+    display: flex
+    font-family: var(--geometria-medium)
+    font-weight: 500
+    font-size: 15px
+    line-height: 133%
+
+  .sort__item-specialty-block .sort__item-specialty:nth-child(2), .sort__item-birthday-block .sort__item-birthday:nth-child(2),
+  .sort__item-group-block .sort__item-group:nth-child(2)
+    width: 73.72%
+    display: flex
+    margin-left: 13px
+
+  .sort__item-name-rating .sort__item-rating-block:nth-child(2)
+    align-items: center
+
+  .sort__item-color
+    width: 12px
+    height: 12px
+
+  .sort__item-rating-text
+    font-size: var(--geometria-medium)
+    font-weight: 500
+    font-size: 12px
+
+  .sort__item-color
+    margin-left: 21px
+
+  .sort__item-rating-icon
+    margin: 0 13px 0 10px
+
+  .sort__item-basket
+    position: absolute
+    right: 0
+  
+  .sort__item-birthday-block
+    margin-top: 15px
+
+  .sort__item-line::before
+    content: " "
+    display: block
+    border: 1px solid var(--color-light-black)
+    position: absolute
+    width: calc(100% - 16vw - 2px)
+    left: 8vw
+
+  .sort__item-ellipse-block
+    width: 22%
+    display: flex
+    justify-content: flex-end
+
+  .sort__item-ellipse
+    width: 5px
+    height: 5px
+    clip-path: ellipse()
+    background: var(--color-blue)
+
+@media (max-width: 700px)
+  .sort__item-line::before
+    content: " "
+    display: block
+    border: 1px solid var(--color-light-black)
+    position: absolute
+    width: calc(100% - 10.6vw - 2px)
+    left: 5.3vw
+
+@media (max-width: 375px)
+  .sort__item-line::before
+    content: " "
+    display: block
+    border: 1px solid var(--color-light-black)
+    position: absolute
+    width: calc(100% - 40px - 2px)
+    left: 20px

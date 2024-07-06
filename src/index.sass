@@ -14,6 +14,11 @@
   src: url("./fonts/Geometria/Geometria-Medium.otf") format("truetype")
 
 @font-face
+  font-family: "Geometria-Regular"
+  font-display: block
+  src: url("./fonts/Geometria/Geometria-Regular.ttf") format("truetype")
+
+@font-face
   font-family: "Geometria-MediumItalic"
   font-display: block
   src: url("./fonts/Geometria/Geometria-MediumItalic.otf") format("truetype")
@@ -36,6 +41,7 @@
 :root
   --geometria-light: "Geometria-Light", sans-serif
   --geometria-lightitalic: "Geometria-LightItalic", sans-serif
+  --geometria-regular: "Geometria-Regular", sans-serif
   --geometria-medium: "Geometria-Medium", sans-serif
   --geometria-mediumitalic: "Geometria-MediumItalic", sans-serif
   --geometria-bold: "Geometria-Bold", sans-serif
@@ -46,10 +52,11 @@
   --color-black: #000
   --color-light-black: #00000012
   --color-white: #FFF
+  --color-light-white: #ffffff99
   --color-blue: #49C2E8
   --color-light-blue: #49C2E81C
   --color-green: #83C872
-  --color-yellow: #83C872
+  --color-yellow: #F7FB53
   --color-red: #E25B5B
   --color-orange: #EFA638
 
@@ -82,3 +89,7 @@ p
 input
   padding: 0
   border: 0
+  outline: 0
+
+th
+  padding: 0

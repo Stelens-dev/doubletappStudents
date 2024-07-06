@@ -17,7 +17,9 @@
 
 .dropdown__menu
   width: max-content
+  position: absolute
   padding: 5px
+  z-index: 3
   border-radius: 6px
   background: var(--color-white)
   box-shadow: 0 7px 64px 0 var(--color-light-black)
@@ -36,8 +38,16 @@
   align-items: center
   padding: 0 17px
 
-// .dropdown__check-icon
-//   padding-left: 17px
-
 .dropdown__menu-li:hover
   background: var(--color-light-blue)
+
+@media (max-width: 700px)
+  .dropdown__button
+    width: 54px
+
+  .dropdown__text
+    display: none
+
+  .dropdown__menu
+    position: absolute
+    right: 5.3vw
