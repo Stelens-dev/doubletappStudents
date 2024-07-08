@@ -7,7 +7,7 @@ export const Search = () => {
   return (
     <>
       <img src={search} className={style.search__icon} />
-      <input className={style.search__input} placeholder={placeholder} />
+      <input className={style.search__input} onChange={(e) => console.log(e.target.value)} placeholder={placeholder} />
     </>
   );
 };

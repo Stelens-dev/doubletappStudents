@@ -94,7 +94,6 @@
   height: 30px
   display: block
   clip-path: ellipse()
-  background: var(--color-green)
 
 .sort__item-basket
   width: 30px
@@ -109,6 +108,12 @@
   object-fit: none
   border-radius: 100%
   box-shadow: 0 0 16px 0 var(--color-light-black)
+
+.sort__text-error
+  width: 100%
+  display: flex
+  justify-content: center
+  margin: 32px 0
 
 // Adaptive items disable
 @media (min-width: 860.1px)
@@ -137,10 +142,11 @@
   .sort__section-students
     padding: unset
     box-shadow: unset
+    gap: 10px
 
   .sort__item-full-name
     width: auto
-    margin-bottom: 14px 
+    margin-bottom: 14px
 
   .sort__item-name, .sort__section-thead, .sort__item-rating, .sort__item-birthday, .sort__item-specialty, .sort__item-group
     display: none
@@ -173,14 +179,12 @@
   .sort__item-color
     width: 12px
     height: 12px
+    margin-left: 21px
 
   .sort__item-rating-text
     font-size: var(--geometria-medium)
     font-weight: 500
     font-size: 12px
-
-  .sort__item-color
-    margin-left: 21px
 
   .sort__item-rating-icon
     margin: 0 13px 0 10px
@@ -188,7 +192,7 @@
   .sort__item-basket
     position: absolute
     right: 0
-  
+
   .sort__item-birthday-block
     margin-top: 15px
 

@@ -1,4 +1,4 @@
-interface DropdownInterface {
+interface DropdownI {
   id: number,
   value: string,
   text: string,
@@ -6,4 +6,4 @@ interface DropdownInterface {
   selectButton?: boolean
 }
 
-export type { DropdownInterface };
+export type { DropdownI };

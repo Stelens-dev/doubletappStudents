@@ -1,8 +1,13 @@
-interface StudentsInterface {
-  students?: StudentsParametrInterface[]
+interface StudentsI {
+  students?: StudentsParametrI[]
 }
 
-interface StudentsParametrInterface {
+interface PropsI {
+    update: (id: number) => void;
+    arrId: number
+}
+
+interface StudentsParametrI extends PropsI {
   id: number,
   email: string,
   name: string,
@@ -15,4 +20,8 @@ interface StudentsParametrInterface {
   avatar: string
 }
 
-export type { StudentsInterface };
+interface HandleButtonClickI {
+  id: number
+}
+
+export type { StudentsI, StudentsParametrI, PropsI, HandleButtonClickI };

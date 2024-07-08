@@ -1,4 +1,4 @@
-interface ReqInterface {
+interface ReqI {
   method: "GET" | "HEAD" | "PUT" | "PATCH" | "POST" | "DELETE",
   body?: "null",
   headers?: {
@@ -6,4 +6,4 @@ interface ReqInterface {
   }
 }
 
-export type { ReqInterface };
+export type { ReqI };

@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { DropdownInterface /*, DropdownButtonInterface*/ } from "../../interface/components/Interface.Dropdown";
+import { DropdownI /*, DropdownButtonInterface*/ } from "../../interface/components/Interface.Dropdown";
 import style from "./DropDown.module.sass";
 import check from "../../assets/icon/check.svg";
 import sort from "../../assets/icon/sort.svg";
 
-export const Dropdown = (props: { data: DropdownInterface[] }): React.ReactElement => {
+export const Dropdown = (props: { data: DropdownI[] }): React.ReactElement => {
   const [state, _setState] = useState(props.data);
-  const [option, setOption] = useState<null | DropdownInterface>(null);
+  const [option, setOption] = useState<null | DropdownI>(null);
   const [select, setSelect] = useState(false);
   
 
