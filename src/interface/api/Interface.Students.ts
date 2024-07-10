@@ -1,5 +1,5 @@
 interface StudentsI {
-  students?: StudentsParametrI[]
+  students?: StudentsParametrI[] | undefined
 }
 
 interface PropsI {

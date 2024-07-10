@@ -5,7 +5,7 @@ import basket from "../../assets/icon/basket.svg";
 import rating from "../../assets/icon/rating.svg";
 
 export const ListItems = (e: StudentsParametrI): React.ReactElement => {
-  const handleClick = (id: number) => {
+  const deleteItem = (id: number) => {
     return e.update(id);
   };
 
@@ -23,7 +23,7 @@ export const ListItems = (e: StudentsParametrI): React.ReactElement => {
           </span>
         </span>
         <span className={style["sort__item-basket"]}>
-          <img src={basket} className={style["sort__item-basket-img"]} onClick={() => handleClick(e.arrId)} />
+          <img src={basket} className={style["sort__item-basket-img"]} onClick={() => deleteItem(e.arrId)} />
         </span>
       </td>
       <td>
@@ -55,7 +55,7 @@ export const ListItems = (e: StudentsParametrI): React.ReactElement => {
         <span className={style["sort__item-rating-block"]}>
           <span className={style["sort__item-color"]} style={{ background: `var(--color-${e.color})` }} />
           <span className={style["sort__item-basket"]}>
-            <img src={basket} className={style["sort__item-basket-img"]} onClick={() => handleClick(e.arrId)} />
+            <img src={basket} className={style["sort__item-basket-img"]} onClick={() => deleteItem(e.arrId)} />
           </span>
         </span>
       </td>

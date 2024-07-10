@@ -1,9 +1,13 @@
 interface DropdownI {
-  id: number,
+  data: DropdownParametrsI[] | undefined,
+  filterItem: (arr: DropdownParametrsI[] | null, flag: boolean) => void
+}
+
+interface DropdownParametrsI {
   value: string,
   text: string,
-  select: boolean,
+  select: boolean | void,
   selectButton?: boolean
 }
 
-export type { DropdownI };
+export type { DropdownI, DropdownParametrsI };

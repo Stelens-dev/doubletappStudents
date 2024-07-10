@@ -1,31 +1,15 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { useApi } from "../../Hooks/useApi";
+import React, { useState } from "react";
+// import { useApi } from "../../Hooks/useApi";
 import style from "./Sort.module.sass";
-import { StudentsI, HandleButtonClickI, StudentsParametrI } from "../../interface/api/Interface.Students";
+import { HandleButtonClickI, StudentsParametrI } from "../../interface/api/Interface.Students";
 import { ListItems } from "./ListItems";
+import { SortI } from "../../interface/components/Interface.Sort";
 
-export const Sort = (): React.ReactElement => {
-  const name: string[] = ["ФИО", "Специальность", "Группа", "Возраст", "Рейтинг"];
-  const [students, setStudents] = useState<StudentsParametrI[] | undefined>(undefined);
-  const [_parametr, setParametr] = useState<string | null>(null);
+export const Sort = ({ students, data }: SortI): React.ReactElement => {
   const [deleteItem, setDeleteItem] = useState<HandleButtonClickI | null>(null);
-  const { request } = useApi();
+  const name: string[] = ["ФИО", "Специальность", "Группа", "Возраст", "Рейтинг"];
 
-  const persons = useCallback(async () => {
-    const data: StudentsI | undefined = await request("https://front-assignment-api.2tapp.cc/api/persons", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-    setStudents(data?.students);
-  }, [request]);
-
-  useEffect(() => {
-    persons();
-  }, [persons]);
-
-  const handleButtonClick = (id: number) => {
+  const deleteButtonClick = (id: number) => {
     setDeleteItem({ id: id });
   };
 
@@ -34,28 +18,31 @@ export const Sort = (): React.ReactElement => {
     (students as StudentsParametrI[]).splice(deleteItem.id, 1);
   }
 
-  // console.log(students?.map((e) => e.id));
+  if (data !== null) {
+    const str: string = data.str!;
+    students = (students as StudentsParametrI[]).filter((e) => (e.name.includes(str)) ? true : false);
+  }
 
   return (
     <table className={style["sort__section-table"]}>
       <thead className={style["sort__section-thead"]}>
         <tr className={style["sort__section-th-title"]}>
           {name.map((e, i) => (
-            <th id={`${i}`} className={style["sort__section-students-value"]} onClick={() => setParametr(e)} key={Math.random()}>{e}</th>
+            <th id={`${i}`} className={style["sort__section-students-value"]} key={Math.random()}>{e}</th>
           ))}
         </tr>
       </thead>
       {(students !== undefined && students.length !== 0)
         ? (<tbody className={style["sort__section-students"]}>
-          {students.map((e, i) => <ListItems {...e} arrId={i} update={handleButtonClick} key={Math.random()} />)}
+          {students.map((e, i) => <ListItems {...e} arrId={i} update={deleteButtonClick} key={Math.random()} />)}
         </tbody>)
-        : <tbody className={style["sort__section-students"]}>
+        : (<tbody className={style["sort__section-students"]}>
           <tr className={style["sort__text-error"]}>
             <td>
-              <p>{`Студенты пока не добавлены, зайдите позже...`}</p>
+              <p>{`Студенты пока не добавлены или выбраны неправильно параметры, зайдите позже...`}</p>
             </td>
           </tr>
-        </tbody>}
+        </tbody>)}
     </table>
   );
 };
