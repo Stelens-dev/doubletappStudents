@@ -7,7 +7,7 @@ import { Sort } from "../../components/Sort/Sort";
 import { selectList } from "./selectList";
 import { MainI } from "../../interface/pages/interface.Main";
 import { StudentsI, StudentsParametrI } from "../../interface/api/Interface.Students";
-import { useApi } from "../../Hooks/useApi";
+import { useApi } from "../../hooks/useApi";
 import { DropdownParametrsI } from "../../interface/components/Interface.Dropdown";
 import { filterStudents } from "./filterStudents";
 
@@ -18,6 +18,7 @@ const ListMain = (): React.ReactElement => {
   const [flag, setFlag] = useState<boolean>(false);
   const { request } = useApi();
   const title: string = "Студенты";
+  let colorOptions: DropdownParametrsI[] | undefined = undefined;
   let data: DropdownParametrsI[] | string[] | undefined = undefined;
 
   const persons = useCallback(async () => {
@@ -34,23 +35,24 @@ const ListMain = (): React.ReactElement => {
     persons();
   }, [persons]);
 
-  const filterItemInList = (arr: DropdownParametrsI[] | null | undefined, _setFilterFlag: boolean) => {
-    if (students !== undefined && arr !== null && arr !== undefined) {
-      const str: string = arr[0].value;
-      setFilterItem(filterStudents(students, str));
-      setFlag(!flag);
-    }
-  };
-
+  
   const searchItemInList = (str: string) => {
     setSearch({ str: str });
   };
-
+  
   if (students !== undefined) {
     const colorSet: Set<string> = new Set(students.map((e) => e.color).sort());
-    const colorOptions: DropdownParametrsI[] = Array.from(colorSet).map((color) => ({ value: color, text: color, select: false }));
+    colorOptions = Array.from(colorSet).map((color) => ({ value: color, text: color, select: false }));
     data = selectList.concat(colorOptions);
   }
+
+  const filterItemInList = (arr: DropdownParametrsI[] | null | undefined, _setFilterFlag: boolean) => {
+    if (students !== undefined && arr !== null && arr !== undefined) {
+      const str: string = arr[0].value;
+      setFilterItem(filterStudents(students, str, colorOptions));
+      setFlag(!flag);
+    }
+  };
 
   return (
     <div className={style["list-main"]}>

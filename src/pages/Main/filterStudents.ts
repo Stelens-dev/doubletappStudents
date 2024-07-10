@@ -1,7 +1,9 @@
 import { YearsOld } from "../../components/Sort/YearsOld";
 import { StudentsParametrI } from "../../interface/api/Interface.Students";
+import { DropdownParametrsI } from "../../interface/components/Interface.Dropdown";
 
-export const filterStudents = (students: StudentsParametrI[], sortStudent: string | null): StudentsParametrI[] | undefined => {
+export const filterStudents = (students: StudentsParametrI[], sortStudent: string | null, colorOptions: DropdownParametrsI[] | undefined ): StudentsParametrI[] | undefined => {
+  const color: string | undefined = colorOptions?.map((e) => e.value).find((e) => e === sortStudent);
   const copyItems: StudentsParametrI[] = students;
 
   if (sortStudent === "name_senior") {
@@ -22,10 +24,10 @@ export const filterStudents = (students: StudentsParametrI[], sortStudent: strin
   if (sortStudent === "low_rating") {
     return students!.sort((a, b) => a.rating - b.rating); // Сортировка по рейтенгу cначала низкий (low_rating)
   }
-  if (sortStudent === "red" || sortStudent === "blue" || sortStudent === "green") {
+  if (color !== undefined && sortStudent === color) {
     return students!.filter((e) => e.color === sortStudent); // Сортировка по любимому цвету
   }
-  if (sortStudent === null) {
+  if (sortStudent === null || color === undefined) {
     return copyItems;
   }
 };

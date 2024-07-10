@@ -17,7 +17,7 @@ export const ListItems = (e: StudentsParametrI): React.ReactElement => {
         <span className={style["sort__item-name-rating"]}>
           <span className={style["sort__item-name"]}>{e.name}</span>
           <span className={style["sort__item-rating-block"]}>
-            <span className={style["sort__item-color"]} />
+            <span className={style["sort__item-color"]} style={{ background: `var(--color-${e.color})` }} />
             <img src={rating} className={style["sort__item-rating-icon"]} />
             <span className={style["sort__item-rating-text"]}>{e.rating}</span>
           </span>
