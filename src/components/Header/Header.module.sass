@@ -20,6 +20,9 @@
 
   &--clip
     color: var(--color-blue)
+  
+  &--black
+    color: var(--color-black)
 
 // Медиазапросы для устройств от 1400px и ниже
 @media (max-width: 1400px)
@@ -36,5 +39,5 @@
 
 @media (max-width: 615px)
   .title
-    &--clip
+    &--clip, &--black
       display: none
