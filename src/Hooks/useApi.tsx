@@ -1,8 +1,5 @@
 import { useCallback, useState } from "react";
-import { ReqI } from "../interface/Hooks/Interface.useApi";
-// import { StudentsInterface } from "../interface/api/Interface.Students";
-
-type ActionPromise<T> = T | Promise<T>;
+import { ActionPromise, ReqI } from "../interface/Hooks/Interface.useApi";
 
 export const useApi = () => {
   const [error, setError] = useState<null | string | Error>(null);

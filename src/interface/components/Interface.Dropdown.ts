@@ -1,6 +1,6 @@
 interface DropdownI {
   data: DropdownParametrsI[] | undefined,
-  filterItem: (arr: DropdownParametrsI[] | null, flag: boolean) => void
+  filterItem: (arr: DropdownParametrsI[] | null) => void
 }
 
 interface DropdownParametrsI {

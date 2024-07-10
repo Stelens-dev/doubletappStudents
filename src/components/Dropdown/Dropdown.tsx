@@ -7,20 +7,20 @@ import sort from "../../assets/icon/sort.svg";
 export const Dropdown = ({ data, filterItem }: DropdownI): React.ReactElement => {
   const [option, setOption] = useState<DropdownParametrsI | null>(null);
   const [select, setSelect] = useState<boolean>(false);
-  const setFilter = data?.filter((e) => e.select === true);
+  const setFilter: DropdownParametrsI[] | undefined = data?.filter((e) => e.select === true);
   let flag: boolean | void | undefined = false;
-  let setFlag: DropdownParametrsI[] | undefined = undefined;
+  let itemDropdown: DropdownParametrsI[] | undefined = undefined;
 
   flag = (setFilter !== undefined && setFilter.length !== 0) ? true : false;
 
   if (data !== undefined && option !== null) {
-    setFlag = data.filter((e) => e.value === option.value);
+    itemDropdown = data.filter((e) => e.value === option.value);
   }
   
   useEffect(() => {
     if (flag !== false) {
       const selectData: DropdownParametrsI[] = data!.filter((e) => e.select === true);
-      filterItem(selectData, flag);
+      filterItem(selectData);
       setOption(selectData[0]);
     }
   }, [data, flag, filterItem]);
@@ -38,10 +38,9 @@ export const Dropdown = ({ data, filterItem }: DropdownI): React.ReactElement =>
               {data.map((e, i) => (
                 <li className={style["dropdown__menu-li"]} key={Math.random()} onClick={() => (data.splice(i, 1, { ...e, select: true }), setOption({ ...e }))}>
                   {`${e.text}`}
-                  {(setFlag !== undefined && e.value === setFlag[0].value) ? <img className={style["dropdown__check-icon"]} src={check} alt="check_icon" /> : null}
+                  {(itemDropdown !== undefined && itemDropdown.length !== 0 && e.value === itemDropdown[0].value) ? <img className={style["dropdown__check-icon"]} src={check} alt="check_icon" /> : null}
                 </li>
               ))}
-
             </ul>
           </div>
         ) : (

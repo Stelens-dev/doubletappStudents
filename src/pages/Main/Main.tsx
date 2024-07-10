@@ -4,12 +4,12 @@ import style from "./Main.module.sass";
 import { Dropdown } from "../../components/Dropdown/Dropdown";
 import { Search } from "../../components/Search/Search";
 import { Sort } from "../../components/Sort/Sort";
-import { selectList } from "./selectList";
+import { selectList } from "../../core/selectList";
 import { MainI } from "../../interface/pages/interface.Main";
 import { StudentsI, StudentsParametrI } from "../../interface/api/Interface.Students";
 import { useApi } from "../../hooks/useApi";
 import { DropdownParametrsI } from "../../interface/components/Interface.Dropdown";
-import { filterStudents } from "./filterStudents";
+import { filterStudents } from "../../core/filterStudents";
 
 const ListMain = (): React.ReactElement => {
   const [students, setStudents] = useState<StudentsParametrI[] | undefined>(undefined);
@@ -46,7 +46,7 @@ const ListMain = (): React.ReactElement => {
     data = selectList.concat(colorOptions);
   }
 
-  const filterItemInList = (arr: DropdownParametrsI[] | null | undefined, _setFilterFlag: boolean) => {
+  const filterItemInList = (arr: DropdownParametrsI[] | null | undefined) => {
     if (students !== undefined && arr !== null && arr !== undefined) {
       const str: string = arr[0].value;
       setFilterItem(filterStudents(students, str, colorOptions));

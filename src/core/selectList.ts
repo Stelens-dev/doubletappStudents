@@ -1,14 +1,14 @@
-import { DropdownParametrsI } from "../../interface/components/Interface.Dropdown";
+import { DropdownParametrsI } from "../interface/components/Interface.Dropdown";
 
 export const selectList: DropdownParametrsI[] = [
   {
     value: "name_senior",
-    text: "Имя А-Я",
+    text: "Имя A-Z",
     select: false
   },
   {
     value: "name_junior",
-    text: "Имя Я-А",
+    text: "Имя Z-A",
     select: false
   },
   {

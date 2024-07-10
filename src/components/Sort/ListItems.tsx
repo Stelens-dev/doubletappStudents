@@ -1,6 +1,6 @@
 import { StudentsParametrI } from "../../interface/api/Interface.Students";
 import style from "./Sort.module.sass";
-import { YearsOld } from "./YearsOld";
+import { YearsOld } from "../../core/YearsOld";
 import basket from "../../assets/icon/basket.svg";
 import rating from "../../assets/icon/rating.svg";
 

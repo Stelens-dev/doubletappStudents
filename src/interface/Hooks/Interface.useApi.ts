@@ -1,3 +1,5 @@
+type ActionPromise<T> = T | Promise<T>;
+
 interface ReqI {
   method: "GET" | "HEAD" | "PUT" | "PATCH" | "POST" | "DELETE",
   body?: "null",
@@ -6,4 +8,4 @@ interface ReqI {
   }
 }
 
-export type { ReqI };
+export type { ReqI, ActionPromise };
