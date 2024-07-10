@@ -4,7 +4,7 @@ import { DropdownParametrsI } from "../interface/components/Interface.Dropdown";
 
 export const filterStudents = (students: StudentsParametrI[], sortStudent: string | null, colorOptions: DropdownParametrsI[] | undefined ): StudentsParametrI[] | undefined => {
   const color: string | undefined = colorOptions?.map((e) => e.value).find((e) => e === sortStudent);
-  // const copyItems: StudentsParametrI[] = students;
+  const copyItems: StudentsParametrI[] = students;
 
   if (sortStudent === "name_senior") {
     return students!.sort((a, b) => a["name"] > b["name"] ? 1 : -1); // Сортировака по имени От A-Z (name_senior)
@@ -28,6 +28,6 @@ export const filterStudents = (students: StudentsParametrI[], sortStudent: strin
     return students!.filter((e) => e.color === sortStudent); // Сортировка по любимому цвету
   }
   if (sortStudent === null || color === undefined) {
-    // return copyItems;
+    return copyItems;
   }
 };

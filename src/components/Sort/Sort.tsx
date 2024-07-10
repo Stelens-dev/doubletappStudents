@@ -12,12 +12,10 @@ export const Sort = ({ students, data }: SortI): React.ReactElement => {
     setDeleteItem({ id: id });
   };
 
-  console.log(students);
-
   if (deleteItem !== null) {
-    console.log(deleteItem.id);
     // Using mutation we remove an object from the array using the splice method
     (students as StudentsParametrI[]).splice(deleteItem.id, 1);
+    setDeleteItem(null);
   }
 
   if (data !== null) {

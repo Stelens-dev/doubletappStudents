@@ -6,6 +6,7 @@ import rating from "../../assets/icon/rating.svg";
 
 export const ListItems = (e: StudentsParametrI): React.ReactElement => {
   const deleteItem = (id: number) => {
+    console.log("Click");
     return e.update(id);
   };
 
