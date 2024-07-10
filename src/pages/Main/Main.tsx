@@ -21,6 +21,7 @@ const ListMain = (): React.ReactElement => {
   let colorOptions: DropdownParametrsI[] | undefined = undefined;
   let data: DropdownParametrsI[] | string[] | undefined = undefined;
 
+  // Запрос для получения данных
   const persons = useCallback(async () => {
     const data: StudentsI | undefined = await request("https://front-assignment-api.2tapp.cc/api/persons", {
       method: "GET",

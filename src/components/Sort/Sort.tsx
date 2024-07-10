@@ -13,7 +13,7 @@ export const Sort = ({ students, data }: SortI): React.ReactElement => {
   };
 
   if (deleteItem !== null) {
-    // Using mutation we remove an object from the array using the splice method
+    // Используя мутацию, мы удаляем объект из массива методом splice
     (students as StudentsParametrI[]).splice(deleteItem.id, 1);
     setDeleteItem(null);
   }

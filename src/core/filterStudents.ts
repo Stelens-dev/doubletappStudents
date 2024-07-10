@@ -3,6 +3,7 @@ import { StudentsParametrI } from "../interface/api/Interface.Students";
 import { DropdownParametrsI } from "../interface/components/Interface.Dropdown";
 
 export const filterStudents = (students: StudentsParametrI[], sortStudent: string | null, colorOptions: DropdownParametrsI[] | undefined ): StudentsParametrI[] | undefined => {
+  // Получаем и сортируем цвета для условия
   const color: string | undefined = colorOptions?.map((e) => e.value).find((e) => e === sortStudent);
   const copyItems: StudentsParametrI[] = students;
 

@@ -5,6 +5,7 @@ export const useApi = () => {
   const [error, setError] = useState<null | string | Error>(null);
   const request = useCallback(async (url: string, options: ReqI) => {
     try {
+      // Задаем нужные параметры и отправляем при помощи fetch запрос
       const response: Promise<Response> = fetch(url, {
         method: options.method,
         headers: options.headers,

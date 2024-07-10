@@ -48,13 +48,11 @@
   border-radius: 6px
   box-shadow: 0 7px 64px 0 var(--color-light-black)
 
-// ---------- Don't touch!!!! -------------
 .sort__section-item
   display: flex
   align-items: center
 
 .sort__item-full-name
-  // width: 24%
   display: flex
   align-items: center
   position: relative
@@ -115,7 +113,7 @@
   justify-content: center
   margin: 32px 0
 
-// Adaptive items disable
+// Отключение некоторых элементов, у которых разрешение выше 860 px
 @media (min-width: 860.1px)
   .sort__item-name-rating
     display: none
@@ -130,7 +128,7 @@
   .sort__item-line
     display: none
 
-// Adaptive
+// Медиазапросы для мобильных устройств
 @media (max-width: 860px)
   .sort__section-item
     flex-direction: column
@@ -152,7 +150,6 @@
     display: none
 
   .sort__item-specialty-block, .sort__item-birthday-block, .sort__item-group-block
-    // width: 33.89%
     width: 100%
     display: flex
     align-items: center
